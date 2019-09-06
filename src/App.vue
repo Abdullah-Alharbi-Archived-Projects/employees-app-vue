@@ -40,7 +40,12 @@ export default {
   },
   methods: {
     addEmployee(employee) {
-      // TODO: generate id && update state
+      // generate new id
+      const id = this.generateId();
+      const newEmployee = { ...employee, id };
+
+      // update the state
+      this.employees = [...this.employees, newEmployee];
     },
     generateId() {
       const lastId =
