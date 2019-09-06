@@ -15,6 +15,9 @@ export default {
   name: "employee-form",
   data() {
     return {
+      submitting: false,
+      error: false,
+      success: false,
       employee: {
         name: "",
         email: ""
