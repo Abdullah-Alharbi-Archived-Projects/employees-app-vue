@@ -4,11 +4,16 @@
       <thead>
         <th>Employee name</th>
         <th>Employee email</th>
+        <th>Actions</th>
       </thead>
       <tbody>
         <tr v-for="employee in employees" :key="employee.id">
           <td>{{ employee.name }}</td>
           <td>{{ employee.email }}</td>
+          <td>
+            <button>Edit</button>
+            <button class="muted-button">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
