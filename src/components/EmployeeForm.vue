@@ -55,6 +55,9 @@ export default {
         email: ""
       };
 
+      // focus on the first input
+      this.$refs.first.focus();
+
       this.error = false;
       this.success = true;
       this.submitting = false;
