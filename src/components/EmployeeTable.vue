@@ -21,7 +21,7 @@
             <button class="muted-button" @click="editing = null">Cancel</button>
           </td>
           <td v-else>
-            <button @click.prevent="editMode(employee.id)">Edit</button>
+            <button @click.prevent="editMode(employee)">Edit</button>
             <button
               class="muted-button"
               @click.prevent="$emit('delete:employee', employee.id)"
@@ -36,21 +36,30 @@
 <script>
 export default {
   name: "employee-table",
+  data() {
+    return {
+      editing: null
+    };
+  },
   props: {
-    editing: null,
     employees: {
       type: Array,
       required: true
     }
   },
   methods: {
-    editMode(id) {
-      this.editing = id;
+    editMode(employee) {
+      this.cachedEmployee = Object.assign({}, employee);
+      this.editing = employee.id;
     },
     editEmployee(employee) {
       if (employee.name === "" || employee.email === "") return;
       this.$emit("edit:employee", employee.id, employee);
       this.editing = false;
+    },
+    cancelEdit(employee) {
+      Object.assign(employee, this.cachedEmployee);
+      this.editing = null;
     }
   }
 };
