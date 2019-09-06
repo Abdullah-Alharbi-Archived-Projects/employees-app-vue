@@ -3,7 +3,7 @@
     <h1>Employees</h1>
 
     <employee-form @add:employee="addEmployee" />
-    <employee-table :employees="employees" />
+    <employee-table :employees="employees" @delete:employee="deleteEmployee" />
   </div>
 </template>
 
@@ -46,6 +46,9 @@ export default {
 
       // update the state
       this.employees = [...this.employees, newEmployee];
+    },
+    deleteEmployee(id) {
+      // TODO: Delete employee
     },
     generateId() {
       const lastId =
