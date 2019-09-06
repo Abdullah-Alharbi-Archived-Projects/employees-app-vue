@@ -2,9 +2,9 @@
   <div id="employee-form">
     <form method="POST">
       <label>Employee name</label>
-      <input type="text" />
+      <input v-model="name" type="text" />
       <label>Employee Email</label>
-      <input type="text" />
+      <input v-model="email" type="text" />
       <button class="accent-button">Add Employee</button>
     </form>
   </div>
