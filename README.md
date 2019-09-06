@@ -15,7 +15,7 @@ simple CRUD app using vue
 
 ## UI
 
-![user-interface](https://i.ibb.co/WHP77hQ/Screenshot-10.png)
+![user-interface](https://i.ibb.co/CzsRymW/Screenshot-10.png)
 
 ## Project setup
 
