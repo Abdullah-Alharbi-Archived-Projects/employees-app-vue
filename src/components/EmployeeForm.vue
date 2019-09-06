@@ -8,6 +8,7 @@
         @focus="clearStatus"
         type="text"
         v-model="employee.name"
+        @keypress="clearStatus"
       />
       <label>Employee Email</label>
       <input
