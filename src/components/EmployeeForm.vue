@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log("testing handleSubmit");
+      // TODO: validate employee data!
+      this.$emit("add:employee", this.employee);
     }
   }
 };
