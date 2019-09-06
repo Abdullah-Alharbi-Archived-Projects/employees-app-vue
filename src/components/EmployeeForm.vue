@@ -23,12 +23,19 @@ export default {
   },
   methods: {
     handleSubmit() {
-      // TODO: validate employee data!
       this.$emit("add:employee", this.employee);
 
       // clear the inputs
       this.employee.name = "";
       this.employee.email = "";
+    }
+  },
+  computed: {
+    invalidName() {
+      return this.employee.name === "" || this.employee.name.length === 0;
+    },
+    invalidEmail() {
+      return this.employee.email === "" || this.employee.email.length === 0;
     }
   }
 };
