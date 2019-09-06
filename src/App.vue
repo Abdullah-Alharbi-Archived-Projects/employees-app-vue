@@ -8,11 +8,13 @@
 
 <script>
 import EmployeeTable from "@/components/EmployeeTable";
+import EmployeeForm from "@/components/EmployeeForm";
 
 export default {
   name: "app",
   components: {
-    EmployeeTable
+    EmployeeTable,
+    EmployeeForm
   },
   data() {
     return {
