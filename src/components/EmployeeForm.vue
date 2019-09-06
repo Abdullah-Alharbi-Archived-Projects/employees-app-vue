@@ -70,4 +70,16 @@ form {
 button {
   margin-top: 15px;
 }
+
+[class*="-message"] {
+  font-weight: 500;
+}
+
+.error-message {
+  color: #d33c40;
+}
+
+.success-message {
+  color: #32a95d;
+}
 </style>
