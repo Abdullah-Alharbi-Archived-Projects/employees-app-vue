@@ -6,6 +6,10 @@ simple CRUD app using vue
 - update employee
 - delete employee
 
+## ToDo:
+- add search ability
+- connect with api
+
 ## Project setup
 ```
 npm install
