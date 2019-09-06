@@ -8,9 +8,19 @@
       </thead>
       <tbody>
         <tr v-for="employee in employees" :key="employee.id">
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.email }}</td>
-          <td>
+          <td v-if="editing === employee.id">
+            <input type="text" v-model="employee.name" />
+          </td>
+          <td v-else>{{employee.name}}</td>
+          <td v-if="editing === employee.id">
+            <input type="text" v-model="employee.email" />
+          </td>
+          <td v-else>{{employee.email}}</td>
+          <td v-if="editing === employee.id">
+            <button @click="editEmployee(employee)">Save</button>
+            <button class="muted-button" @click="editing = null">Cancel</button>
+          </td>
+          <td v-else>
             <button @click.prevent="editMode(employee.id)">Edit</button>
             <button
               class="muted-button"
@@ -27,7 +37,7 @@
 export default {
   name: "employee-table",
   props: {
-    editing: false,
+    editing: null,
     employees: {
       type: Array,
       required: true
