@@ -28,4 +28,8 @@ export default {
 form {
   margin-bottom: 2rem;
 }
+
+button {
+  margin-top: 15px;
+}
 </style>
