@@ -15,8 +15,10 @@ export default {
   name: "employee-form",
   data() {
     return {
-      name: "",
-      email: ""
+      employee: {
+        name: "",
+        email: ""
+      }
     };
   }
 };
