@@ -11,7 +11,7 @@
           <td>{{ employee.name }}</td>
           <td>{{ employee.email }}</td>
           <td>
-            <button>Edit</button>
+            <button @click.prevent="editMode(employee.id)">Edit</button>
             <button
               class="muted-button"
               @click.prevent="$emit('delete:employee', employee.id)"
@@ -27,9 +27,20 @@
 export default {
   name: "employee-table",
   props: {
+    editing: false,
     employees: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    editMode(id) {
+      this.editing = true;
+    },
+    editEmployee(employee) {
+      if (employee.name === "" || employee.email === "") return;
+      this.$emit("edit:employee", employee.id, employee);
+      this.editing = false;
     }
   }
 };
