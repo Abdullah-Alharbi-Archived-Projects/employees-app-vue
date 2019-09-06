@@ -3,7 +3,11 @@
     <h1>Employees</h1>
 
     <employee-form @add:employee="addEmployee" />
-    <employee-table :employees="employees" @delete:employee="deleteEmployee" />
+    <employee-table
+      :employees="employees"
+      @edit:employee="editEmployee"
+      @delete:employee="deleteEmployee"
+    />
   </div>
 </template>
 
@@ -46,6 +50,11 @@ export default {
 
       // update the state
       this.employees = [...this.employees, newEmployee];
+    },
+    editEmployee(id, updatedEmployee) {
+      this.employees = this.employees.map(employee =>
+        employee.id === id ? updatedEmployee : employee
+      );
     },
     deleteEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id);
