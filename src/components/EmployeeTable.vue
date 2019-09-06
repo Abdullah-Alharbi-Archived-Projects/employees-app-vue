@@ -12,7 +12,10 @@
           <td>{{ employee.email }}</td>
           <td>
             <button>Edit</button>
-            <button class="muted-button">Delete</button>
+            <button
+              class="muted-button"
+              @click.prevent="$emit('delete:employee', employee.id)"
+            >Delete</button>
           </td>
         </tr>
       </tbody>
