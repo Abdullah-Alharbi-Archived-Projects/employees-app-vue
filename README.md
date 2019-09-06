@@ -10,6 +10,9 @@ simple CRUD app using vue
 - add search ability
 - connect with api
 
+## UI
+![user-interface](https://ibb.co/nwn44GT)
+
 ## Project setup
 ```
 npm install
