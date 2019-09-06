@@ -25,7 +25,13 @@
 
 <script>
 export default {
-  name: "employee-table"
+  name: "employee-table",
+  props: {
+    employees: {
+      type: Array,
+      required: true
+    }
+  }
 };
 </script>
 
