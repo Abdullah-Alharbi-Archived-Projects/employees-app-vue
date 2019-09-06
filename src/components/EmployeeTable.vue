@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     editMode(id) {
-      this.editing = true;
+      this.editing = id;
     },
     editEmployee(employee) {
       if (employee.name === "" || employee.email === "") return;
