@@ -31,6 +31,10 @@ export default {
       // clear the inputs
       this.employee.name = "";
       this.employee.email = "";
+    },
+    clearStatus() {
+      this.success = false;
+      this.error = false;
     }
   },
   computed: {
