@@ -2,6 +2,7 @@
   <div id="app" class="small-container">
     <h1>Employees</h1>
 
+    <employee-form />
     <employee-table :employees="employees" />
   </div>
 </template>
