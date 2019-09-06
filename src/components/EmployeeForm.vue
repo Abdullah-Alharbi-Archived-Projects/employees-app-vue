@@ -25,6 +25,10 @@ export default {
     handleSubmit() {
       // TODO: validate employee data!
       this.$emit("add:employee", this.employee);
+
+      // clear the inputs
+      this.employee.name = "";
+      this.employee.email = "";
     }
   }
 };
