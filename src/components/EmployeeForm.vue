@@ -26,11 +26,25 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.submitting = true;
+      this.clearStatus();
+
+      if (this.invalidName || this.invalidEmail) {
+        this.error = true;
+        return false;
+      }
+
       this.$emit("add:employee", this.employee);
 
       // clear the inputs
-      this.employee.name = "";
-      this.employee.email = "";
+      this.employee = {
+        name: "",
+        email: ""
+      };
+
+      this.error = false;
+      this.success = true;
+      this.submitting = false;
     },
     clearStatus() {
       this.success = false;
