@@ -48,7 +48,7 @@ export default {
       this.employees = [...this.employees, newEmployee];
     },
     deleteEmployee(id) {
-      // TODO: Delete employee
+      this.employees = this.employees.filter(employee => employee.id !== id);
     },
     generateId() {
       const lastId =
