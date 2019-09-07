@@ -1,7 +1,8 @@
 <template>
   <div id="search-employee">
     <form method="GET" @submit.prevent>
-      <input type="text" v-model="search" />
+      <label for="search">Search</label>
+      <input type="text" v-model="search" id="search" />
       <select v-model="searchType">
         <option value>Search by...</option>
         <option value="name">Name</option>
