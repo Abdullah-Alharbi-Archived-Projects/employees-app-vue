@@ -20,7 +20,7 @@ import EmployeeTable from "@/components/EmployeeTable";
 import EmployeeForm from "@/components/EmployeeForm";
 import SearchInput from "@/components/SearchInput";
 import ToggleApi from "@/components/ToggleApi";
-import ApiService from "@/services/ApiService";
+import ApiService from "./services/ApiService";
 
 export default {
   name: "app",
@@ -33,19 +33,31 @@ export default {
   data() {
     return {
       employees: [],
-      callAPI: false,
+      callAPI: true,
       filterEmployees: [],
       renderFilter: false
     };
   },
   methods: {
-    addEmployee(employee) {
+    async addEmployee(employee) {
       // generate new id
       const id = this.generateId();
       const newEmployee = { ...employee, id };
 
+      const oldEmployees = [...this.employees];
+
       // update the state
       this.employees = [...this.employees, newEmployee];
+
+      try {
+        delete newEmployee.id;
+        const response = await ApiService.store(newEmployee);
+        const { data } = response;
+      } catch (O_O) {
+        console.log(O_O);
+        alert(O_O.message ? O_O.message : "something went wrong.");
+        this.employees = [...oldEmployees];
+      }
     },
     editEmployee(id, updatedEmployee) {
       this.employees = this.employees.map(employee =>
@@ -77,7 +89,7 @@ export default {
       return id;
     }
   },
-  created() {
+  async created() {
     if (!this.callAPI) {
       this.employees = [
         {
@@ -97,7 +109,13 @@ export default {
         }
       ];
     } else {
-      // call the api
+      try {
+        const response = await ApiService.get();
+        const { data } = response;
+        this.employees = [...data];
+      } catch (O_O) {
+        console.log(O_O);
+      }
     }
   }
 };
