@@ -61,10 +61,26 @@ export default {
         this.employees = [...oldEmployees];
       }
     },
-    editEmployee(id, updatedEmployee) {
+    async editEmployee(id, updatedEmployee, oldEmployeeState) {
       this.employees = this.employees.map(employee =>
         employee.id === id ? updatedEmployee : employee
       );
+
+      if (!this.callAPI) return true;
+
+      try {
+        const response = await ApiService.update(id, updatedEmployee);
+        const { data } = response;
+        this.employees = this.employees.map(employee =>
+          employee.id === id ? updatedEmployee : employee
+        );
+      } catch (O_O) {
+        console.log(O_O);
+        alert(O_O.message ? O_O.message : "something went wrong.");
+        this.employees = this.employees.map(employee =>
+          employee.id === id ? oldEmployeeState : employee
+        );
+      }
     },
     deleteEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id);
