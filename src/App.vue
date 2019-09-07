@@ -14,12 +14,14 @@
 <script>
 import EmployeeTable from "@/components/EmployeeTable";
 import EmployeeForm from "@/components/EmployeeForm";
+import SearchInput from "@/components/SearchInput";
 
 export default {
   name: "app",
   components: {
     EmployeeTable,
-    EmployeeForm
+    EmployeeForm,
+    SearchInput
   },
   data() {
     return {
