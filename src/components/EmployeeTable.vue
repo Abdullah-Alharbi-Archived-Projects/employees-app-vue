@@ -56,8 +56,7 @@ export default {
       if (employee.name === "" || employee.email === "") return;
       const { name: updatedName, email: updatedEmail } = employee;
       const { name: oldName, email: oldEmail } = this.cachedEmployee;
-      if (oldName === updatedName) return;
-      if (oldEmail === updatedEmail) return;
+      if (oldName === updatedName && oldEmail === updatedEmail) return;
 
       this.$emit("edit:employee", employee.id, employee, this.cachedEmployee);
       this.editing = false;
