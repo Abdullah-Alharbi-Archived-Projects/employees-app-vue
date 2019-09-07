@@ -54,6 +54,7 @@ export default {
         delete newEmployee.id;
         const response = await ApiService.store(newEmployee);
         const { data } = response;
+        newEmployee.id = data.id;
       } catch (O_O) {
         console.log(O_O);
         alert(O_O.message ? O_O.message : "something went wrong.");
