@@ -2,8 +2,9 @@
   <div id="app" class="small-container">
     <h1>Employees</h1>
 
-    <search-input />
     <employee-form @add:employee="addEmployee" />
+
+    <search-input />
     <employee-table
       :employees="employees"
       @edit:employee="editEmployee"
