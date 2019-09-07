@@ -27,23 +27,8 @@ export default {
   },
   data() {
     return {
-      employees: [
-        {
-          id: 1,
-          name: "Richard Hendricks",
-          email: "richard@piedpiper.com"
-        },
-        {
-          id: 2,
-          name: "Bertram Gilfoyle",
-          email: "gilfoyle@piedpiper.com"
-        },
-        {
-          id: 3,
-          name: "Dinesh Chugtai",
-          email: "dinesh@piedpiper.com"
-        }
-      ],
+      employees: [],
+      callAPI: false,
       filterEmployees: [],
       renderFilter: false
     };
@@ -82,6 +67,29 @@ export default {
           : 0;
       const id = lastId + 1;
       return id;
+    }
+  },
+  created() {
+    if (!this.callAPI) {
+      this.employees = [
+        {
+          id: 1,
+          name: "Richard Hendricks",
+          email: "richard@piedpiper.com"
+        },
+        {
+          id: 2,
+          name: "Bertram Gilfoyle",
+          email: "gilfoyle@piedpiper.com"
+        },
+        {
+          id: 3,
+          name: "Dinesh Chugtai",
+          email: "dinesh@piedpiper.com"
+        }
+      ];
+    } else {
+      // call the api
     }
   }
 };
