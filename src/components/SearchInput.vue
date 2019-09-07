@@ -22,7 +22,8 @@ export default {
   },
   methods: {
     handleSearch() {
-      // TODO: Emitt event search:employee
+      const { searchType, search } = this;
+      this.$emit("search:employee", { searchType, search });
     }
   }
 };
