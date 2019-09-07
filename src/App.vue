@@ -20,6 +20,7 @@ import EmployeeTable from "@/components/EmployeeTable";
 import EmployeeForm from "@/components/EmployeeForm";
 import SearchInput from "@/components/SearchInput";
 import ToggleApi from "@/components/ToggleApi";
+import ApiService from "@/services/ApiService";
 
 export default {
   name: "app",
