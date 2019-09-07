@@ -7,10 +7,10 @@ simple CRUD app using vue
 - create new employee
 - update employee
 - delete employee
+- search ability
 
 ## ToDo:
 
-- add search ability
 - connect with api
 
 ## UI
