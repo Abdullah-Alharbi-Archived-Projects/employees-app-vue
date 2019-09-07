@@ -82,8 +82,21 @@ export default {
         );
       }
     },
-    deleteEmployee(id) {
+    async deleteEmployee(id) {
+      const oldEmployees = [...this.employees];
       this.employees = this.employees.filter(employee => employee.id !== id);
+
+      if (!this.callAPI) return true;
+
+      try {
+        const response = await ApiService.delete(id);
+        const { data } = response;
+        console.log(response);
+      } catch (O_O) {
+        console.log(O_O);
+        alert(O_O.message ? O_O.message : "something went wrong.");
+        this.employees = [...oldEmployees];
+      }
     },
     searchEmployee({ searchType, search }) {
       if (search.length === 0 || search === "")
