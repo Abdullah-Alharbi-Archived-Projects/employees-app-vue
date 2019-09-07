@@ -48,6 +48,7 @@ export default {
 
       // update the state
       this.employees = [...this.employees, newEmployee];
+      if (!this.callAPI) return true;
 
       try {
         delete newEmployee.id;
