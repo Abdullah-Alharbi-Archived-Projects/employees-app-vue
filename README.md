@@ -8,14 +8,11 @@ simple CRUD app using vue
 - update employee
 - delete employee
 - search ability
-
-## ToDo:
-
 - connect with api
 
 ## UI
 
-![user-interface](https://i.ibb.co/CzsRymW/Screenshot-10.png)
+![user-interface](https://i.ibb.co/8KTPX9w/Screenshot-11.png)
 
 ## Project setup
 
