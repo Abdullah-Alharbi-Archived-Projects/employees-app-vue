@@ -4,7 +4,7 @@
       <label for="search">Search</label>
       <input type="text" id="search" @keyup="handleSearch" v-model="search" />
       <select v-model="searchType" @change="handleSearch">
-        <option value>Search by...</option>
+        <option value>Search by... [default name]</option>
         <option value="name">Name</option>
         <option value="email">Email</option>
       </select>
