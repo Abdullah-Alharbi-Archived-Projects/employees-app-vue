@@ -1,5 +1,7 @@
 <template>
   <div id="app" class="small-container">
+    <toggle-api :callAPI="callAPI" @call:api="toggleApiCalls" />
+
     <h1>Employees</h1>
 
     <employee-form @add:employee="addEmployee" />
@@ -17,13 +19,15 @@
 import EmployeeTable from "@/components/EmployeeTable";
 import EmployeeForm from "@/components/EmployeeForm";
 import SearchInput from "@/components/SearchInput";
+import ToggleApi from "@/components/ToggleApi";
 
 export default {
   name: "app",
   components: {
     EmployeeTable,
     EmployeeForm,
-    SearchInput
+    SearchInput,
+    ToggleApi
   },
   data() {
     return {
@@ -59,6 +63,9 @@ export default {
         return employee[type].includes(search);
       });
       this.renderFilter = true;
+    },
+    toggleApiCalls() {
+      this.callAPI = !this.callAPI;
     },
     generateId() {
       const lastId =
