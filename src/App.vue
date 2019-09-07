@@ -6,7 +6,7 @@
 
     <search-input @search:employee="searchEmployee" />
     <employee-table
-      :employees="employees"
+      :employees="renderFilter ? filterEmployees : employees"
       @edit:employee="editEmployee"
       @delete:employee="deleteEmployee"
     />
@@ -43,7 +43,9 @@ export default {
           name: "Dinesh Chugtai",
           email: "dinesh@piedpiper.com"
         }
-      ]
+      ],
+      filterEmployees: [],
+      renderFilter: false
     };
   },
   methods: {
@@ -64,7 +66,14 @@ export default {
       this.employees = this.employees.filter(employee => employee.id !== id);
     },
     searchEmployee({ searchType, search }) {
-      console.log(searchType, search);
+      if (search.length === 0 || search === "")
+        return (this.renderFilter = false);
+      const type = searchType ? searchType : "name";
+      this.filterEmployees = [...this.employees];
+      this.filterEmployees = this.filterEmployees.filter(employee => {
+        return employee[type].includes(search);
+      });
+      this.renderFilter = true;
     },
     generateId() {
       const lastId =
