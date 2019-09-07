@@ -4,7 +4,7 @@
 
     <employee-form @add:employee="addEmployee" />
 
-    <search-input />
+    <search-input @search:employee="searchEmployee" />
     <employee-table
       :employees="employees"
       @edit:employee="editEmployee"
@@ -62,6 +62,9 @@ export default {
     },
     deleteEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id);
+    },
+    searchEmployee({ searchType, search }) {
+      console.log(searchType, search);
     },
     generateId() {
       const lastId =
