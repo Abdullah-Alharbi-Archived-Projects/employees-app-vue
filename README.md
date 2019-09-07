@@ -1,6 +1,6 @@
 # employee-app-vue
 
-simple CRUD app using vue
+simple CRUD app using vue [try the app](https://w2alharbime.github.io/employees-app-vue/)
 
 ## Features
 
